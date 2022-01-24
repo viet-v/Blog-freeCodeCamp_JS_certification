@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completing freeCodeCamp JavaScript Algorithms and Data Structures Certification</title>
+</head>
+<body>
+    <div class="content">
+        <h1 class="heading">Completing freeCodeCamp JavaScript Algorithms and Data Structures Certification</h1>
+        <p class="intro">
+            <span class="date">
+                Today January 12, 2022<br>
+                About 6:30 PM
+            </span><br>
+            I just completed the JavaScript Algorithms and Data Structures course of freeCodeCamp.<br>
+            One word to describe my feeling? Amazing!<br>
+            Why? Because I was stuck in 2 headachy last projects: Telephone Number Validator & Cash Register. And I solved them by myself!<br>
+            Of course there was time that I wanted to take a hint from solution page, but to my surprise, there is no solution for these projects! That makes sense, because no challenge only has one solution. So, it was a great motivation for me to try harder.<br>
+        </p>
+        <h2>How I dealed with the Telephone Number Validator challenge</h2>
+        <p class="question">Here's the question<br>
+            Return true if the passed string looks like a valid US phone number.
+            <br><br>
+            The user may fill out the form field any way they choose as long as it has the format of a valid US number. The following are examples of valid formats for US numbers (refer to the tests below for other variants):
+            <br><br>
+            555-555-5555<br>
+            (555)555-5555<br>
+            (555) 555-5555<br>
+            555 555 5555<br>
+            5555555555<br>
+            1 555 555 5555<br>
+            For this challenge you will be presented with a string such as 800-692-7753 or 8oo-six427676;laskdjf. Your job is to validate or reject the US phone number based on any combination of the formats provided above. The area code is required. If the country code is provided, you must confirm that the country code is 1. <br>
+            Return true if the string is a valid US phone number; otherwise return false.</p>
+        <details>
+            <summary>And here is my code</summary>
+            <pre>
+                <code>
+                    function telephoneCheck(str) {
+                        const regex1 = /(?&lt;!\()1?\s*\d{3}-\d{3}-\d{4}/
+                    // 2 hyphens, no beginning with (, has one or zero number 1 at beginning
+                    
+                        const regex2 = /^1\s*\(\d{3}\)\s*\d{3}-\d{4}/
+                    // 1 hyphen, number 1 (country code) must be at beginning, first 3 numbers surrounded by parentheses
+                    
+                        const regex3 = /^\(\d{3}\)\s*\d{3}-\d{4}/
+                    // 1 hyphen, no country code, first 3 numbers surrounded by parentheses
+                    
+                        const regex4 = /^1\s*\d{3}\s*\d{3}\s*\d{4}/
+                    // 0 hyphen, 1 (country code) at beginning, followed by 10 numbers
+                    
+                        const regex5 = /\d{3}\s*\d{3}\s*\d{4}(?!\))/
+                    // 0 hyphen, no country code, 10 numbers, no parentheses at the end
+                    // this case has to combine with condition str.length === 10, because any string with 11 numbers or more could also match
+                    
+                    //  console.log('27576227382'.match(regex4))
+                    
+                        if (str.match(regex1) || str.match(regex2) ||
+                            str.match(regex3) ||
+                            str.match(regex4)){
+                        return true;
+                        } else if (str.match(regex5) && str.length === 10) {
+                        return true;
+                        } 
+                        return false;
+                        
+                    }
+                    
+                    console.log(telephoneCheck("(6054756961)"))
+                </code>
+            </pre>
+        </details>
+        <p>At first I looked at the question and had no idea what I was gonna do with it, nothing came out of my mind. Of course it would not be that fast, they already said these challenges are “much more difficult” 😖 than the intermediate algorithm challenges, which I found not so easy.</p>
+        
+    </div>
+</body>
+</html>
