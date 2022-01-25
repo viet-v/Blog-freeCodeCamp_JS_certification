@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+.content {
+    margin: 0 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.date {
+    font-family: 'Roboto Mono', monospace;
+}
+
+p {
+    line-height: 30px;
+}
+
+.question {
+    color: white;
+    background-color: #f8333c;
+    padding: 10px 30px;
+}
+
+details {
+    color: #143d59;
+    background-color: #ceeaf7;
+}
+
+pre {
+    padding: 0 30px;
+}
+
+code {
+    white-space: pre-line;
+}
