@@ -5,8 +5,22 @@ body {
     font-size: 18px;
 }
 
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  background-color: #F99FF9;
+}
+
 .content {
     margin: 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 h1 {
@@ -18,7 +32,7 @@ h1 {
 }
 
 p {
-    line-height: 30px;
+    line-height: 40px;
 }
 
 .question {
@@ -30,6 +44,7 @@ p {
 details {
     color: #143d59;
     background-color: #ceeaf7;
+    cursor: pointer;
 }
 
 pre {
@@ -38,4 +53,116 @@ pre {
 
 code {
     white-space: pre-line;
+    background-color: #ceeaf7;
+}
+
+blockquote {
+    background-color: #ceeaf7;
+    border-left: solid 2px #143d59;
+    border-right: solid 2px #143d59;
+    padding: 20px 15px;
+}
+
+blockquote a {
+    text-decoration: none;
+}
+
+.explain {
+    padding-left: 15px;
+    border-left: solid 3px #143d59;
+}
+
+/* ---------------------- CONTACT -------------------------- */
+.contact {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  background: linear-gradient(45deg,  #F99FF9, #9FF9F1, #B2FC77, #FCF477);
+  background-size: 400%;
+  animation: animate 3s ease infinite;
+}
+
+@keyframes animate {
+  0% {background-position: 0 50%}
+  50% {background-position: 100% 50%}
+  100% {background-position: 0% 50%}
+}
+
+.wrapper {
+    max-width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.contact h2 {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    color: #143d59;
+    margin: 50px 0;
+}
+
+address {
+    width: 100%;
+    max-width: 250px;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+#mail {
+    color: #143d59;
+    font-style: normal;
+    text-decoration: none;
+}
+
+address a {
+    background-color: transparent;
+}
+
+.socials {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+#linkedin, #github, #behance {
+    font-size: 3em;
+    color: #143d59;
+}
+
+#linkedin:hover, #github:hover, #behance:hover {
+    animation: shake 1s ease-in infinite;
+  }
+  
+  @keyframes shake {
+    0% {
+      transform: scale(1.5) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.5) rotate(3deg);
+    }
+    50% {
+      transform: scale(1.5) rotate(0deg);
+    }
+    75% {
+      transform: scale(1.5) rotate(-3deg);
+    }
+    100% {
+      transform: scale(1.5) rotate(0deg);
+    }
+  }
+  
+  #linkedin i:active, #github i:active, #behance i:active {
+    transform: scale(0.8);
+    transition: transform 0.2s;
+  }
+
+#copyright {
+    text-align: center;
+    font-size: 0.875em;
+    color: #143d59;
 }

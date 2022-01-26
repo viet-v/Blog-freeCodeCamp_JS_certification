@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Completing the freeCodeCamp JavaScript Algorithms and Data Structures Certification</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/38863ae954.js" defer></script>
 </head>
 <body>
+    <div class="background"></div>
     <div class="content">
         <h1 class="heading">Completing the freeCodeCamp JavaScript Algorithms and Data Structures Certification</h1>
         <blockquote cite="https://www.freecodecamp.org/certification/viet-v/javascript-algorithms-and-data-structures">
@@ -16,9 +18,9 @@
         </blockquote>
         <p class="intro">
             <span class="date">
-                Today January 12, 2022<br>
+                January 12, 2022<br>
                 About 6:30 PM
-            </span><br>
+            </span><br><br>
             I just completed the JavaScript Algorithms and Data Structures course of freeCodeCamp.<br>
             One word to describe my feeling? Amazing!<br>
             Why? Because I was stuck in 2 headachy last projects: Telephone Number Validator & Cash Register. And I solved them by myself!</p>
@@ -82,17 +84,17 @@
         <p>At first I looked at the question and had no idea what I was gonna do with it, nothing came out of my mind. Of course it would not be that fast, they already said these challenges are “much more difficult” 😖 than the intermediate algorithm challenges, which I found not so easy.<br>
             After analyzing the test, I realized they have some commonalities, I can check each condition by regular expression (a mighty tool).</p>
         <p class="explain">
-            For example, with number <code>555-555-5555</code> & <code>1 555-555-5555</code><br>
-            I used <code>regex1 = /(?&lt;!\()1?\s*\d{3}-\d{3}-\d{4}/</code> (arrr headachy right?). With this regex I make sure the numbers that have 2 hyphens between 3 digits, 3 digits & 4 digits, maybe have number 1 at beginning (country code), and no parentheses at the very beginning are valid.<br>
-            So in this case this number won’t pass <code>(555-555-5555</code>
+            &#x25cf; For example, with number <code>555-555-5555</code> & <code>1 555-555-5555</code><br>
+            &#x25cf; I used <code>regex1 = /(?&lt;!\()1?\s*\d{3}-\d{3}-\d{4}/</code> (arrr headachy right?). With this regex I make sure the numbers that have 2 hyphens between 3 digits, 3 digits & 4 digits, maybe have number 1 at beginning (country code), and no parentheses at the very beginning are valid.<br>
+            &#x25cf; So in this case this number won’t pass <code>(555-555-5555</code>
         </p>
         <p>Just like that, I created 5 regular expressions in total.</p>
         <p class="explain">
             It was pretty smooth until I met the trickiest part of this solution.<br>
             <code>regex5 = /\d{3}\s*\d{3}\s*\d{4}(?!\))/</code><br>
-            <b>5555555555</b> (10 digits) this number can pass this regex, and so does this <b>27576227382</b> (11 digits), because I used match() method.<br>
-            Now I can easily explain it, but at first it was so frustrating that the later one can pass the regex (if it has 11 digits, the first digit must be 1, not 2). Then if I change the regex, the first one <b>5555555555</b> won’t pass! 😵<br>
-            So briefly, at last I prioritized this last regex, I said <code>if (str.match(regex5) && str.length === 10)</code> Yep! Had to force the length to 10. And woo hoo! Passed the challenge!
+            &#x25cf; <b>5555555555</b> (10 digits) this number can pass this regex, and so does this <b>27576227382</b> (11 digits), because I used match() method.<br>
+            &#x25cf; Now I can easily explain it, but at first it was so frustrating that the later one can pass the regex (if it has 11 digits, the first digit must be 1, not 2). Then if I change the regex, the first one <b>5555555555</b> won’t pass! 😵<br>
+            &#x25cf; So briefly, at last I prioritized this last regex, I said <code>if (str.match(regex5) && str.length === 10)</code> Yep! Had to force the length to 10. And woo hoo! Passed the challenge!
         </p>
         <p>I know the way I solve is very manual, it’s not so concise and smart, but I’m very happy with it because I found my own unique way.</p>
         <iframe src="https://giphy.com/embed/l0IycI0rreFNQwmSQ" width="480" height="393" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
@@ -102,7 +104,7 @@
             Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price), payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.<br>
             cid is a 2D array listing available currency.<br>
             The checkCashRegister() function should always return an object with a status key and a change key.<br>
-            Return {status: "INSUFFICIENT_FUNDS", change: []} if cash-in-drawer is less than the change due, or if you cannot return the exact change.<br>
+            Return {status: "INSUFFICIENT_FUNDS", change: [ ]} if cash-in-drawer is less than the change due, or if you cannot return the exact change.<br>
             Return {status: "CLOSED", change: [...]} with cash-in-drawer as the value for the key change if it is equal to the change due.<br>
             Otherwise, return {status: "OPEN", change: [...]}, with the change due in coins and bills, sorted in highest to lowest order, as the value of the change key.<br>
             <br>
@@ -207,14 +209,14 @@
             But I said I got this, I had this situation many times, just get cool and keep reading, then read again, read the test kit.<br>
             After understanding the question, it took me a bit of time to figure out the algorithm. My solution can be explained like this.</p>
         <p class="explain">
-            Find the <i>change = cash - price</i><br>
-            Subtract the <i>change</i> to the biggest amount of a certain currency unit which is smaller than the <i>change</i>. For example, <i>change</i> subtracts 60 at first (the 3rd test).<br>
-            Keep subtracting until <i>change</i> is no longer greater than or equal to the next amount. Then I subtract <i>change</i> to the currency unit value itself (by referring to my currency array with respective index with <i>cid</i> array)<br>
-            And keep doing until <i>change === 0</i><br>
+            &#x25cf; Find the <i>change = cash - price</i><br>
+            &#x25cf; Subtract the <i>change</i> to the biggest amount of a certain currency unit which is smaller than the <i>change</i>. For example, <i>change</i> subtracts 60 at first (the 3rd test).<br>
+            &#x25cf; Keep subtracting until <i>change</i> is no longer greater than or equal to the next amount. Then I subtract <i>change</i> to the currency unit value itself (by referring to my currency array with respective index with <i>cid</i> array)<br>
+            &#x25cf; And keep doing until <i>change === 0</i><br>
             <br>
             That’s the first condition when <i>change</i> is less than cash-in-drawer, but if cash-in-drawer can’t return the exact <i>change</i> (means <i>change</i> at the end !== 0) because they don’t have the needed bills, the output would be different.<br>
-            Second condition is when <i>change</i> is greater than cash-in-drawer, this one is simple, just print “INSUFFICIENT_FUNDS”.<br>
-            And the last condition is when <i>change</i> is equal to cash-in-drawer.<br>
+            &#x25cf; Second condition is when <i>change</i> is greater than cash-in-drawer, this one is simple, just print “INSUFFICIENT_FUNDS”.<br>
+            &#x25cf; And the last condition is when <i>change</i> is equal to cash-in-drawer.<br>
             That’s the main idea, plus fixing some problems with decimal values.
         </p>
         <p>Sometimes I couldn’t get it, why it doesn’t work while everything makes sense, is there any problems with my browser or this challenge setup?? Haha I know it sounds ridiculous. There were many times I thought that, and of course it was always my problem.</p>
@@ -223,7 +225,24 @@
         <iframe src="https://giphy.com/embed/jR4p5oRNxG7sSLmKgb" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         <br>
         <p>That’s it! So lengthy but this is officially my first learning blog. The idea came to me when I was wandering back and forth to find solution for the boss challenge. I should have done this earlier. Learning to code is an interesting journey!</p>
-        <p><strong>I’m so happy and lucky if you reached here. Thanks for your time and don’t hesitate to connect with me!</strong></p>
+        <p><strong>I’m so happy if you've reached here. Thanks for your time and don’t hesitate to connect with me!</strong></p>
     </div>
+
+    <footer>
+      <div class="contact" id="contact">
+        <div class="wrapper">
+          <h2 class="section-title">LET'S CONNECT!</h2>
+          <address>
+            <a href="mailto:vohoangviet459@gmail.com" target="_blank" id="mail">vohoangviet459@gmail.com</a>
+            <div class="socials">
+              <a href="https://www.linkedin.com/in/vo-hoang-viet/" target="_blank" id="linkedin"><i class="fab fa-linkedin"></i></a>
+              <a href="https://github.com/viet-v" target="_blank" id="github"><i class="fab fa-github"></i></a>
+              <a href="https://www.behance.net/viet-vo-hoang " target="_blank" id="behance"><i class="fab fa-behance-square"></i></a>
+            </div>
+          </address>
+          <p id="copyright">Copyright © 2022 | Viet Vo Hoang</p>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>
