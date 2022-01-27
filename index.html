@@ -9,7 +9,29 @@
     <script src="https://kit.fontawesome.com/38863ae954.js" defer></script>
 </head>
 <body>
-    <div class="background"></div>
+    <div id="sticky-bar-mobile">
+      <a href="../../">
+        <div class="brand-mobile">
+          <span>vietspace</span>
+          <img src="../../img/logo.svg" alt="vietspace logo">
+        </div>
+      </a>
+      <i class="fas fa-bars" id="nav-bars"></i>
+    </div>
+    <div class="nav-mobile">
+      <nav>
+        <ul>
+          <li><a href="../../#projects">PROJECTS</a></li>
+          <li><a href="../">BLOG</a></li>
+          <li><a href="../../#about">ABOUT</a></li>
+          <li><a href="../../#contact">CONTACT</a></li>
+          <li><a href="../../Viet-Vo-Hoang-Front-End-Developer-Resume.pdf" target="_blank">RESUME</a></li>
+        </ul>
+      </nav>
+      <i class="fas fa-times" id="nav-close"></i> 
+    </div>
+    <div class="nav-overlay"></div>
+
     <div class="content">
         <h1 class="heading">Completing the freeCodeCamp JavaScript Algorithms and Data Structures Certification</h1>
         <blockquote cite="https://www.freecodecamp.org/certification/viet-v/javascript-algorithms-and-data-structures">
@@ -244,5 +266,39 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const navBars = document.getElementById("nav-bars");
+      const navClose = document.getElementById("nav-close");
+      const navMobile = document.querySelector(".nav-mobile");
+      const navOverlay = document.querySelector(".nav-overlay");
+      const stickyBarMobile = document.getElementById("sticky-bar-mobile");
+      
+      navBars.addEventListener("click", () => {   /* click hamburger menu */
+          navMobile.classList.add("show");
+          navMobile.classList.remove("hide");
+          navOverlay.classList.add("fade-in");
+      });
+
+      navClose.addEventListener("click", () => {  /* click close mobile navigation */
+          navMobile.classList.add("hide");
+          navMobile.classList.remove("show");
+          navOverlay.classList.remove("fade-in");
+      })
+
+      navOverlay.addEventListener("click", () => { /* click shadow overlay when open mobile navigation */
+          navMobile.classList.remove("show");
+          navMobile.classList.add("hide");
+          navOverlay.classList.remove("fade-in");
+      })
+
+      window.addEventListener("scroll", () => {     /* sticky navigation bar on scroll effect */
+          if (window.scrollY > 0) {     
+              stickyBarMobile.classList.add("nav-background");
+          } else {
+              stickyBarMobile.classList.remove("nav-background");
+          }
+      })
+    </script>
 </body>
 </html>
