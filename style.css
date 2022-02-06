@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .content {
@@ -29,7 +29,7 @@ body {
 
 #sticky-bar-mobile span {
   font-family: 'Archivo', sans-serif;
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 600;
   color: #143d59;
 }
@@ -130,7 +130,7 @@ h1 {
 }
 
 p {
-    line-height: 40px;
+    line-height: 2.5rem;
 }
 
 .question {
@@ -159,6 +159,7 @@ blockquote {
     border-left: solid 2px #143d59;
     border-right: solid 2px #143d59;
     padding: 20px 15px;
+    margin: 0;
 }
 
 blockquote a {
@@ -169,6 +170,11 @@ blockquote a {
 .explain {
     padding-left: 15px;
     border-left: solid 3px #143d59;
+}
+
+iframe {
+  width: 100%;
+  /* max-width: 360px; */
 }
 
 /* ---------------------- CONTACT -------------------------- */
